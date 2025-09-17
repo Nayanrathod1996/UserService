@@ -59,6 +59,21 @@ namespace UserService.Controllers
             
             return Ok(user);
         }
+        [HttpDelete("deleteUser/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            var finduser = _context.Users.Find(id);
+            if (finduser == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _context.Users.Remove(finduser);
+                _context.SaveChanges();
+            }
+            return Ok(finduser);
+        }
 
     }
 }
