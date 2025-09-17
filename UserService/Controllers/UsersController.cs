@@ -17,7 +17,7 @@ namespace UserService.Controllers
         }
 
         [HttpGet("getList")]
-        public List<User> Index()
+        public List<User> GetListUsers()
         {
             var getlist = _context.Users.ToList();  
             return getlist ;
